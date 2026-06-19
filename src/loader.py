@@ -27,11 +27,11 @@ def load_df(filepath):
                 (~df["Omschrijving"].str.contains(filter_argument_4, case=False))
             ]
 
-            return df_spending
+            return df_spending, "s"
         elif filter_type.lower() == 'i':
             # Get only transactions with positive numbers (> 0)
             df_income = df[(df["Transactiebedrag"] > 0)]
 
-            return df_income
+            return df_income, "i"
         else:
          print("Looks like you selected a different operation I can't help you with :(")
