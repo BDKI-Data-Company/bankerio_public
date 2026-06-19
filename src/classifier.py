@@ -4,7 +4,7 @@ from src.loader import load_df
 
 
 def classify_spending_transactions(filepath):
-    df, filter_type = load_df(filepath)
+    df, filter_type, filter_options = load_df(filepath)
     
     if filter_type == "i":
         total_income = df["Transactiebedrag"].sum()
