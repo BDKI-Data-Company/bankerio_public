@@ -14,7 +14,14 @@ def classify_spending_transactions(filepath):
         # Dict for pairs FILTER ARG: "WHAT TO FILTER BY"
         # ie: SHOPPING: "ALBERT HEIJN"
         user_categories = {}
-
+        # Prompt user for categories to filter by
+        for i in range (10):
+            cat_name = input(f"Category {i + 1} name (or press Enter to stop): ")
+            if not cat_name.strip():
+                break
+            keywords_raw = input(f"Keywords for {cat_name} (comma-separated): ")
+            keywords = [k.strip() for k in keywords_raw.split(",")]
+            user_categories[cat_name] = keywords
 
         
         total_spending = df["Transactiebedrag"].sum()
@@ -26,8 +33,7 @@ def classify_spending_transactions(filepath):
 
         df["category"] = "unclassified"
         
-        all_rules = {**PARAMS_TEMPLATE}
-        for category, keywords in all_rules.items():
+        for category, keywords in user_categories.items():
             pattern = "|".join(keywords)
             mask = df["Omschrijving"].str.contains(pattern, case=False)
             df.loc[mask, "category"] = category
