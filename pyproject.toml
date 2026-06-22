@@ -1,10 +1,10 @@
 [project]
-name = "bankerio"
+name = "bankerio-public"
 version = "0.1.0"
 dependencies = ["pandas"]
 
 [project.scripts]
-bankerio = "main:run"
+bankerio-public = "main:run"
 
 [build-system]
 requires = ["setuptools"]
