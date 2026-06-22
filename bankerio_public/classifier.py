@@ -1,6 +1,6 @@
 # Classify transactions
 import pandas as pd
-from src.loader import load_df
+from bankerio_public.loader import load_df
 
 
 def classify_spending_transactions(filepath):

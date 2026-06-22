@@ -1,5 +1,5 @@
 import sys
-from src.classifier import classify_spending_transactions
+from bankerio_public.classifier import classify_spending_transactions
 
 def run():
     filepath = sys.argv[1]
