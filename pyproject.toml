@@ -1,0 +1,11 @@
+[project]
+name = "bankerio"
+version = "0.1.0"
+dependencies = ["pandas"]
+
+[project.scripts]
+bankerio = "main:run"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
